@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pablo Valdez — Personal Homepage</title>
+  <meta name="description" content="Personal homepage for Pablo Valdez: projects, writing, and contact." />
+  <meta property="og:title" content="Pablo Valdez" />
+  <meta property="og:description" content="Projects, writing, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.png" />
+  <link rel="icon" href="/favicon.png" />
+  <style>
+    :root{
+      --bg:#0b0b0c; --text:#e6e6e6; --muted:#a6a7ab; --card:#141417; --accent:#6cc9ff;
+      --ring: rgba(108,201,255,.45);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f7f8; --text:#111214; --muted:#4a4d55; --card:#ffffff; --accent:#005bbb; --ring:rgba(0,91,187,.25); }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--text);text-decoration:none}
+    a:hover{color:var(--accent)}
+    .container{max-width:1050px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#9D79FF);display:grid;place-items:center;color:#fff;font-weight:700}
+    nav{display:flex;gap:14px;flex-wrap:wrap}
+    nav a{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid transparent}
+    nav a:hover{border-color:var(--accent)}
+    .btn{padding:10px 14px;border-radius:12px;background:var(--accent);color:#081018;font-weight:600;box-shadow:0 0 0 0 var(--ring);border:none;cursor:pointer}
+    .btn:focus{outline:none;box-shadow:0 0 0 6px var(--ring)}
+    .ghost{background:transparent;color:var(--text);border:1px solid #2a2b30}
+
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:32px 0}
+    .card{background:var(--card);border:1px solid #23242a;border-radius:20px;padding:22px}
+    h1{font-size:40px;line-height:1.1;margin:0 0 8px}
+    p.lead{font-size:18px;color:var(--muted);margin:0 0 16px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{font-size:13px;padding:8px 10px;border-radius:999px;background:#1b1c21;border:1px solid #2a2b30;color:#cfd0d4}
+
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid.cols-3{grid-template-columns:1fr}.grid.cols-2{grid-template-columns:1fr}}
+
+    .section{padding:28px 0}
+    .section h2{margin:0 0 12px;font-size:24px}
+    .item{display:flex;gap:12px}
+    .item .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);margin-top:8px;flex:0 0 auto}
+    .item h3{margin:0 0 4px;font-size:18px}
+    .item p{margin:0;color:var(--muted)}
+    .project{position:relative;overflow:hidden}
+    .project a.cta{position:absolute;right:16px;bottom:16px}
+
+    footer{padding:40px 0;color:var(--muted)}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #2a2b30;background:#121318;color:var(--text)}
+
+    .pillbar{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{padding:8px 10px;border-radius:999px;border:1px solid #2a2b30;color:#cfd0d4}
+
+    .kbd{font:12px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:2px 6px;border:1px solid #2a2b30;border-bottom-width:2px;border-radius:6px;background:#0f1014;color:#d7d7db}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">PV</div>
+        <div>
+          <strong>Pablo Valdez</strong><br/>
+          <span style="color:var(--muted)">Student • Engineer in training • Builder</span>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+        <button class="btn ghost" id="themeBtn" title="Toggle theme">Theme</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Hello, I am Pablo.</h1>
+        <p class="lead">I learn fast, build useful things, and enjoy combining hardware with code. I study computer systems and run small tech projects for fun and growth.</p>
+        <div class="chips" style="margin:12px 0 18px">
+          <span class="chip">Java • C in progress</span>
+          <span class="chip">Homelab • Docker</span>
+          <span class="chip">Automation with n8n</span>
+          <span class="chip">Real estate experience</span>
+        </div>
+        <div class="row">
+          <a class="btn" href="#projects">See projects</a>
+          <a class="btn ghost" href="#contact">Say hello</a>
+        </div>
+      </div>
+      <div class="grid cols-1">
+        <div class="card">
+          <h2 style="margin-top:0">Now</h2>
+          <div class="item"><div class="dot"></div><div><h3>Learning</h3><p>Pre calculus work, data structures, and astronomy labs.</p></div></div>
+          <div class="item"><div class="dot"></div><div><h3>Building</h3><p>Automation with n8n and a future media server on a home tower.</p></div></div>
+          <div class="item"><div class="dot"></div><div><h3>Exploring</h3><p>A clean desk setup with a planning system that I can follow.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="card">
+        <p>My name is Pablo Yahir Valdez. I am a community college student in Arizona working toward computer systems engineering. I like to tinker with servers, write small programs, and design simple web pages.
+        </p>
+        <div class="pillbar" style="margin-top:10px">
+          <div class="pill">Values: curiosity and growth</div>
+          <div class="pill">Focus: study routines that stick</div>
+          <div class="pill">Goal: transfer to ASU</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="grid cols-3">
+        <article class="card project">
+          <h3>Homelab</h3>
+          <p class="lead">Self hosted tools on a small server. Plans for a clean domain with safe access.</p>
+          <ul>
+            <li>Reverse proxy and neat sub domains</li>
+            <li>Docker apps like n8n and a media stack</li>
+            <li>Future remote access with a private tunnel</li>
+          </ul>
+          <a class="btn cta" href="#" aria-label="Open homelab notes">Open</a>
+        </article>
+        <article class="card project">
+          <h3>Automation with n8n</h3>
+          <p class="lead">Small flows for daily life.</p>
+          <ul>
+            <li>Course reminders and checklists</li>
+            <li>Simple form to sheet tools</li>
+            <li>Personal idea inbox</li>
+          </ul>
+          <a class="btn cta" href="#" aria-label="Open automation">Open</a>
+        </article>
+        <article class="card project">
+          <h3>Study site</h3>
+          <p class="lead">A page with math notes and tiny visual tools.</p>
+          <ul>
+            <li>Unit circle helper</li>
+            <li>Graph sand box</li>
+            <li>Flash card space</li>
+          </ul>
+          <a class="btn cta" href="#" aria-label="Open study site">Open</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="writing" class="section">
+      <h2>Writing</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>Notes and essays</h3>
+          <p class="lead">Short articles on what I learn. Clear and simple style.</p>
+          <div class="item" style="margin-top:10px"><div class="dot"></div><div><strong>Why small steps win</strong><br><span style="color:var(--muted)">A personal method for steady work in school.</span></div></div>
+          <div class="item" style="margin-top:10px"><div class="dot"></div><div><strong>My math map</strong><br><span style="color:var(--muted)">How I study pre calculus with a whiteboard and spaced practice.</span></div></div>
+        </article>
+        <article class="card">
+          <h3>Resume</h3>
+          <p class="lead">One page resume in PDF.</p>
+          <div class="row" style="margin-top:8px">
+            <a class="btn" href="/Pablo-Valdez-Resume.pdf">Open resume</a>
+            <span class="kbd">/Pablo-Valdez-Resume.pdf</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="card">
+        <form class="grid" onsubmit="return submitForm(event)">
+          <label>
+            <div>Name</div>
+            <input class="input" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            <div>Email</div>
+            <input class="input" name="email" type="email" placeholder="name@mail.com" required />
+          </label>
+          <label>
+            <div>Message</div>
+            <textarea class="input" name="message" rows="5" placeholder="Hello Pablo, I would like to talk about..." required></textarea>
+          </label>
+          <div class="row">
+            <button class="btn" type="submit">Send</button>
+            <a class="btn ghost" href="mailto:hello@yourdomain.com">Or send mail</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="row" style="justify-content:space-between">
+        <div>© <span id="year"></span> Pablo Valdez</div>
+        <div class="row" role="list" aria-label="Social links">
+          <a href="#" role="listitem" aria-label="GitHub">GitHub</a>
+          <span aria-hidden="true">·</span>
+          <a href="#" role="listitem" aria-label="LinkedIn">LinkedIn</a>
+          <span aria-hidden="true">·</span>
+          <a href="#" role="listitem" aria-label="Email">Email</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle stores preference
+    const themeBtn = document.getElementById('themeBtn');
+    const root = document.documentElement;
+    const THEME_KEY = 'pv_theme';
+    const saved = localStorage.getItem(THEME_KEY);
+    if(saved === 'light') root.style.filter = 'invert(1) hue-rotate(180deg)';
+
+    themeBtn.addEventListener('click',()=>{
+      const isLight = root.style.filter.includes('invert(1)');
+      if(isLight){ root.style.filter = ''; localStorage.setItem(THEME_KEY,'dark'); }
+      else { root.style.filter = 'invert(1) hue-rotate(180deg)'; localStorage.setItem(THEME_KEY,'light'); }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+      })
+    })
+
+    // Contact form (mail link fallback)
+    function submitForm(e){
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const name = encodeURIComponent(data.get('name'));
+      const email = encodeURIComponent(data.get('email'));
+      const msg = encodeURIComponent(data.get('message'));
+      const mail = `mailto:hello@yourdomain.com?subject=Hello%20from%20${name}&body=${msg}%0A%0Afrom:%20${email}`;
+      window.location.href = mail;
+      return false;
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
